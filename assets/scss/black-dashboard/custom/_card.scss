@@ -222,6 +222,10 @@
   padding: $card-spacer-y;
 }
 
+.card-gauge{
+    font-size: $font-size-xl;
+}
+
 @include media-breakpoint-down(sm) {
   .card.card-chart .card-header {
     .btn-group-toggle .tim-icons {

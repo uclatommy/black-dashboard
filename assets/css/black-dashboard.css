@@ -8672,6 +8672,10 @@ fieldset[disabled]
   .form-control + .input-group-prepend .input-group-text {
     background-color: #ffffff; }
 
+.fixed-width {
+  font-family: 'Inconsolata', monospace;
+  height: 180px; }
+
 .has-success .input-group-append .input-group-text,
 .has-success .input-group-prepend .input-group-text,
 .has-success .form-control {
@@ -10092,7 +10096,7 @@ hr {
   text-transform: uppercase; }
 
 .table-responsive {
-  overflow: scroll;
+  overflow: auto;
   padding-bottom: 10px; }
 
 #tables .table-responsive {
@@ -11087,6 +11091,53 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 .card.card-chart .gm-style-cc {
   display: none !important; }
 
+@-webkit-keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spinner {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 4px solid #f6f;
+  border-top-color: #0e0;
+  border-right-color: #0dd;
+  border-bottom-color: #f90;
+  -webkit-animation: spinner .6s linear infinite;
+          animation: spinner .6s linear infinite; }
+
+.dim_wrapper {
+  position: fixed;
+  display: none;
+  /* Hidden by default */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  /* Black background with opacity */
+  z-index: 10;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */ }
+
 .bd-docs h1, .bd-docs h2, .bd-docs h3, .bd-docs h4, .bd-docs h5, .bd-docs h6, .bd-docs p, .bd-docs ul li, .bd-docs ol li {
   color: #2c2c2c; }
 
@@ -11940,6 +11991,247 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: fadeOutUp;
   animation-name: fadeOutUp; }
 
+/*-- Chart --*/
+.c3 svg {
+  -webkit-tap-highlight-color: #222a42; }
+
+.c3 path, .c3 line {
+  fill: none;
+  stroke: #525f7f; }
+
+.c3 text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  fill: #525f7f; }
+
+.c3-legend-item-tile,
+.c3-xgrid-focus,
+.c3-ygrid,
+.c3-event-rect,
+.c3-bars path {
+  shape-rendering: crispEdges; }
+
+.c3-chart-arc path {
+  stroke: #ffffff; }
+
+.c3-chart-arc rect {
+  stroke: #ffffff;
+  stroke-width: 1; }
+
+.c3-chart-arc text {
+  fill: #ffffff;
+  font-size: 13px; }
+
+/*-- Axis --*/
+/*-- Grid --*/
+.c3-grid line {
+  stroke: #2dce89; }
+
+.c3-grid text {
+  fill: rgba(222, 222, 222, 0.8); }
+
+.c3-xgrid, .c3-ygrid {
+  stroke-dasharray: 3 3; }
+
+/*-- Text on Chart --*/
+.c3-text.c3-empty {
+  fill: rgba(255, 255, 255, 0.8);
+  font-size: 2em; }
+
+/*-- Line --*/
+.c3-line {
+  stroke-width: 1px; }
+
+/*-- Point --*/
+.c3-circle._expanded_ {
+  stroke-width: 1px;
+  stroke: #ffffff; }
+
+.c3-selected-circle {
+  fill: #ffffff;
+  stroke-width: 2px; }
+
+/*-- Bar --*/
+.c3-bar {
+  stroke-width: 0; }
+
+.c3-bar._expanded_ {
+  fill-opacity: 1;
+  fill-opacity: 0.75; }
+
+/*-- Focus --*/
+.c3-target.c3-focused {
+  opacity: 1; }
+
+.c3-target.c3-focused path.c3-line, .c3-target.c3-focused path.c3-step {
+  stroke-width: 2px; }
+
+.c3-target.c3-defocused {
+  opacity: 0.3 !important; }
+
+/*-- Region --*/
+.c3-region {
+  fill: #5e72e4;
+  fill-opacity: 0.1; }
+
+/*-- Brush --*/
+.c3-brush .extent {
+  fill-opacity: 0.1; }
+
+/*-- Select - Drag --*/
+/*-- Legend --*/
+.c3-legend-item {
+  font-size: 0.75rem; }
+
+.c3-legend-item-hidden {
+  opacity: 0.15; }
+
+.c3-legend-background {
+  opacity: 0.75;
+  fill: #222a42;
+  stroke: gray;
+  stroke-width: 1; }
+
+/*-- Title --*/
+.c3-title {
+  font-size: 0.8125rem; }
+
+/*-- Tooltip --*/
+.c3-tooltip-container {
+  z-index: 10; }
+
+.c3-tooltip {
+  border-radius: 0.4285rem;
+  background: #344675;
+  background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+  background-size: 210% 210%;
+  background-position: top right;
+  background-color: #344675;
+  transition: all 0.15s ease;
+  box-shadow: none;
+  color: #ffffff;
+  empty-cells: show;
+  opacity: 0.9; }
+  .c3-tooltip.animation-on-hover:hover {
+    background-position: bottom left;
+    transition: 0.3s ease-in-out; }
+  .c3-tooltip:hover, .c3-tooltip:focus, .c3-tooltip:active, .c3-tooltip.active, .c3-tooltip:active:focus, .c3-tooltip:active:hover, .c3-tooltip.active:focus, .c3-tooltip.active:hover {
+    background-color: #263148 !important;
+    background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+    background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+    color: #ffffff;
+    box-shadow: none; }
+  .c3-tooltip:active {
+    box-shadow: none !important;
+    -webkit-transform: translateY(1px) !important;
+            transform: translateY(1px) !important;
+    transition: all .15s ease; }
+  .c3-tooltip:not([data-action]):hover {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px); }
+  .c3-tooltip.disabled, .c3-tooltip.disabled:hover, .c3-tooltip.disabled:focus, .c3-tooltip.disabled.focus, .c3-tooltip.disabled:active, .c3-tooltip.disabled.active, .c3-tooltip:disabled, .c3-tooltip:disabled:hover, .c3-tooltip:disabled:focus, .c3-tooltip:disabled.focus, .c3-tooltip:disabled:active, .c3-tooltip:disabled.active, .c3-tooltip[disabled], .c3-tooltip[disabled]:hover, .c3-tooltip[disabled]:focus, .c3-tooltip[disabled].focus, .c3-tooltip[disabled]:active, .c3-tooltip[disabled].active,
+  fieldset[disabled] .c3-tooltip,
+  fieldset[disabled] .c3-tooltip:hover,
+  fieldset[disabled] .c3-tooltip:focus,
+  fieldset[disabled] .c3-tooltip.focus,
+  fieldset[disabled] .c3-tooltip:active,
+  fieldset[disabled] .c3-tooltip.active {
+    background-color: #344675;
+    border-color: #344675; }
+  .c3-tooltip.btn-simple {
+    color: #344675;
+    border-color: #344675;
+    background: transparent; }
+    .c3-tooltip.btn-simple:hover, .c3-tooltip.btn-simple:focus, .c3-tooltip.btn-simple:active, .c3-tooltip.btn-simple:not(:disabled):not(.disabled):active {
+      color: #344675;
+      border-color: #344675;
+      background-color: transparent !important;
+      background-image: none !important;
+      box-shadow: none; }
+    .c3-tooltip.btn-simple.active {
+      border-color: #344675 !important; }
+      .c3-tooltip.btn-simple.active:hover, .c3-tooltip.btn-simple.active:focus, .c3-tooltip.btn-simple.active:active, .c3-tooltip.btn-simple.active:not(:disabled):not(.disabled):active {
+        color: #ffffff;
+        border-color: #344675;
+        background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+        background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+        background-color: #263148 !important;
+        box-shadow: none; }
+  .c3-tooltip.btn-link {
+    color: #344675; }
+    .c3-tooltip.btn-link:hover, .c3-tooltip.btn-link:focus, .c3-tooltip.btn-link:active {
+      background-color: transparent !important;
+      background-image: none !important;
+      color: #ffffff !important;
+      text-decoration: none;
+      box-shadow: none; }
+
+.c3-tooltip th {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 0.7rem; }
+
+.c3-tooltip td {
+  padding: 0.5rem 0.7rem; }
+
+.c3-tooltip td > span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 6px; }
+
+.c3-tooltip td.value {
+  text-align: right; }
+
+/*-- Area --*/
+.c3-area {
+  stroke-width: 0;
+  opacity: 0.2; }
+
+/*-- Arc --*/
+.c3-chart-arcs-title {
+  dominant-baseline: middle;
+  font-size: 1.3em; }
+
+.c3-chart-arcs .c3-chart-arcs-background {
+  fill: #ced4da;
+  stroke: #222a42; }
+
+.c3-chart-arcs .c3-chart-arcs-gauge-unit {
+  fill: #ffffff; }
+
+.c3-chart-arcs .c3-chart-arcs-gauge-max {
+  fill: #e9ecef; }
+
+.c3-chart-arcs .c3-chart-arcs-gauge-min {
+  fill: #e9ecef; }
+
+.c3-chart-arc .c3-gauge-value {
+  fill: #ffffff;
+  /*  font-size: 28px !important;*/ }
+
+.c3-chart-arc.c3-target g path {
+  opacity: 1; }
+
+.c3-chart-arc.c3-target.c3-focused g path {
+  opacity: 1; }
+
+/*-- Zoom --*/
+.c3-drag-zoom.enabled {
+  pointer-events: all !important;
+  visibility: visible; }
+
+.c3-drag-zoom.disabled {
+  pointer-events: none !important;
+  visibility: hidden; }
+
+.c3-drag-zoom .extent {
+  fill-opacity: 0.1; }
+
 .white-content {
   background: #f5f6fa; }
   .white-content .navbar.navbar-transparent .navbar-brand {
@@ -12313,6 +12605,9 @@ Copyright (c) 2015 Daniel Eden
 
 .card-body {
   padding: 1.25rem; }
+
+.card-gauge {
+  font-size: 1.2495rem; }
 
 @media (max-width: 767.98px) {
   .card.card-chart .card-header .btn-group-toggle .tim-icons {
