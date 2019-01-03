@@ -44,6 +44,12 @@ We are very excited to share this dashboard with you and we look forward to hear
 [View More](https://demos.creative-tim.com/black-dashboard/examples/dashboard.html).
 
 
+## System Requirements
+
+- macOS
+    - `brew install nodejs`
+    - `npm install gulp@3.9.1` -g (*note: later versions of gulp introduce new syntax that breaks this repo's gulpfile.js*)
+
 ## Quick start
 
 - `npm i black-dashboard`
